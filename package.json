@@ -1,0 +1,28 @@
+{
+  "name": "meet-wise-backend",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "git@github.com:rakibul-dev/meet-wise-backend.git",
+  "author": "rakibul-dev <mdrakibul.dev@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.18.2",
+    "socket.io": "^4.7.2",
+    "bcrypt": "^5.1.1",
+    "connect-redis": "^7.1.0",
+    "cors": "^2.8.5",
+    "dotenv": "^16.3.1",
+    "express-session": "^1.17.3",
+    "mongoose": "^7.5.4",
+    "morgan": "^1.10.0",
+    "multer": "1.4.5-lts.1",
+    "multer-s3": "^2.10.0",
+    "passport": "^0.6.0",
+    "passport-jwt": "^4.0.1",
+    "passport-local": "^1.0.0",
+    "redis": "^4.6.10"
+  },
+  "scripts": {
+    "dev": "nodemon --inspect ./src/server.js"
+  }
+}
