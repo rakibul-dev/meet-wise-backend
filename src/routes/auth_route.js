@@ -46,7 +46,7 @@ passport.deserializeUser((user, done) => {
 //   })
 // );
 
-router.post("/auth/login", passport.authenticate("local"), (req, res) => {
+router.post("/user/auth/login", passport.authenticate("local"), (req, res) => {
   // console.log({ user: req.user });
 
   try {
@@ -54,7 +54,7 @@ router.post("/auth/login", passport.authenticate("local"), (req, res) => {
   } catch (error) {}
 });
 
-router.post("/user/register", registeUser);
+// router.post("/user/register", registeUser);
 
 router.get("/user/logout", (req, res, next) => {
   req.logout(req.user, (err) => {
