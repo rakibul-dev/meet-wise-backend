@@ -54,14 +54,14 @@ const CreateSocketServer = (server) => {
       //   socket.user = pure.user;
       next();
 
-      console.log("socket req ===========>", pure.user);
+      //   console.log("socket req ===========>", pure.user);
       io.use((socket, next) => {
         VerifySocketClientToken(socket, next, req.session.passport);
       });
     }
   });
   io.on("connection", (socket) => {
-    console.log(socket.user);
+    // console.log(socket.user);
     WsUserConnectionHandler.NewSocketUserConnectionHandler(socket, io);
     // console.log("hand shake ====>", socket.handshake.session);
     // socket.user = socket.request.session.user;
