@@ -4,7 +4,7 @@ const VerifySocketClientToken = (socket, next, user) => {
   //   console.log("verify =====>", socket.handshake);
   socket.user = user;
 
-  console.log({ socket });
+  //   console.log({ socket });
   //   try {
   //     const DecodedToken = jwt.verify(token, process.env.JWT_TOKEN_KEY);
   //     socket.user = DecodedToken;
