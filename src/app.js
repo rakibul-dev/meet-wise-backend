@@ -65,21 +65,19 @@ let redisStore = new RedisStore({
   prefix: "bazar:",
   ttl: 86400 * 365, //for changing default 24h time to live
 });
-
-app.use(
-  session({
-    store: redisStore,
-    // maxAge: 365 * 24 * 60 * 60 * 1000,
-    resave: false, // required: force lightweight session keep alive (touch)
-    saveUninitialized: false, // recommended: only save session when data exists
-    secret: "secret$%^134",
-    cookie: {
-      secure: false, // if true only transmit cookie over https
-      httpOnly: false, // if true prevent client side JS from reading the cookie
-      maxAge: 365 * 24 * 60 * 60 * 1000, // session max age in miliseconds
-    },
-  })
-);
+const sessionMiddleware = session({
+  store: redisStore,
+  // maxAge: 365 * 24 * 60 * 60 * 1000,
+  resave: false, // required: force lightweight session keep alive (touch)
+  saveUninitialized: false, // recommended: only save session when data exists
+  secret: "secret$%^134",
+  cookie: {
+    secure: false, // if true only transmit cookie over https
+    httpOnly: false, // if true prevent client side JS from reading the cookie
+    maxAge: 365 * 24 * 60 * 60 * 1000, // session max age in miliseconds
+  },
+});
+app.use(sessionMiddleware);
 
 // This is the basic express session({..}) initialization.
 app.use(passport.initialize());
@@ -111,4 +109,4 @@ app.use((err, req, res, next) => {
   res.status(500).json({ message: "Internal Server Error" });
 });
 
-module.exports = app;
+module.exports = { app, sessionMiddleware };
