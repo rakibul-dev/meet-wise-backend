@@ -23,6 +23,7 @@
     "redis": "^4.6.10"
   },
   "scripts": {
-    "dev": "nodemon --inspect ./src/server.js"
+    "dev": "nodemon --inspect ./src/index.js",
+    "start": "node  ./src/index.js"
   }
 }
